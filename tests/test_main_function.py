@@ -2,7 +2,7 @@ import allure
 from pages.main_page import *
 from pages.order_feed_page import *
 from pages.login_page import *
-from urls import main_page_url, orders_feed_url
+from urls import main_page_url, orders_feed_endpoint
 
 
 
@@ -31,9 +31,9 @@ class TestMainFunction:
         order_feed_page.wait_for_orders_feed_visible()
         current_url = main_page.get_current_url()
 
-        assert current_url == orders_feed_url
+        assert current_url == f"{main_page_url}{orders_feed_endpoint}"
 
-    @allure.step('При клике на ингредиент появляется всплывающее окно с деталями')
+    @allure.title('При клике на ингредиент появляется всплывающее окно с деталями')
     def test_click_ingredient_show_modal_with_ingredients(self, driver):
         main_page = MainPage(driver)
 
