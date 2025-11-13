@@ -1,7 +1,8 @@
 import pytest
 import requests
 from urls import *
-from helpers import *
+from helpers import WebdriverFactory
+from datasets import *
 
 
 @pytest.fixture(params=["chrome", "firefox"])
