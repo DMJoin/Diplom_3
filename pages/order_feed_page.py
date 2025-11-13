@@ -20,10 +20,9 @@ class OrderFeedPage(BasePage):
         return self.get_element(OrderFeedPageLocators.FIRST_ORDER_NUMBER)
     
     @allure.step('Скролл до заказа')
-    def scroll_to_order(self, text: str):
-        locator = (By.XPATH, f"//*[text()='{text}']")
-        self.scroll_to_element(locator)
-        return self.find_element(locator)
+    def scroll_to_order(self, text: str):     
+        self.scroll_to_element(OrderFeedPageLocators.COUNTER_ORDER)
+        return self.find_element(OrderFeedPageLocators.COUNTER_ORDER)
 
     @allure.step('Клик по первому заказу в ленте заказаов')
     def click_first_order_in_list(self):
